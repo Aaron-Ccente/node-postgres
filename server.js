@@ -3,6 +3,7 @@ import cors from "cors";
 import { PORT } from "./src/config/config.js";
 import AllRoutes from './src/routes/index.routes.js'
 const app = express();
+const PORT_SERVER = PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -16,6 +17,6 @@ app.get("/", (_, res) => {
     .json({ success: true, message: "SERVIDOR CORRIENDO CORRECTAMENTE" });
 });
 
-app.listen(PORT, () => {
-  console.log("Server run in port: ", PORT);
+app.listen(PORT_SERVER, "0.0.0.0", () => {
+  console.log(`Server run in port: ${PORT}`);
 });
